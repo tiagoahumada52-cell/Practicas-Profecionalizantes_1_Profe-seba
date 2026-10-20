@@ -1,12 +1,208 @@
 
   
     
-    body {
-        max-width: 300px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #e20c0c;
-        color: #fcf6f6;
-        font-family: Arial, sans-serif;
+/* Colores principales */
+:root {
+    --marron-oscuro: #34251F;
+    --marron: #72503B;
+    --beige: #F2E8D9;
+    --beige-claro: #E6D8C8;
+    --blanco: #FFFCF8;
+    --negro: #211C19;
+    --gris: #75685F;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--beige);
+    color: var(--negro);
+    min-height: 100vh;
+}
+
+/* Barra superior */
+.navbar {
+    background: var(--marron-oscuro);
+    color: var(--blanco);
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.logo-icon {
+    background: var(--beige);
+    color: var(--marron-oscuro);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.estado {
+    color: var(--beige);
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 55px auto;
+    padding: 0 20px;
+}
+
+.form-card {
+    background: var(--blanco);
+    padding: 38px;
+    border-radius: 18px;
+    border: 1px solid var(--beige-claro);
+    box-shadow: 0 15px 40px rgba(52, 37, 31, 0.10);
+}
+
+.encabezado {
+    margin-bottom: 28px;
+}
+
+.etiqueta {
+    color: var(--marron);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+h1 {
+    color: var(--marron-oscuro);
+    font-size: 32px;
+    margin: 12px 0;
+}
+
+.encabezado p {
+    color: var(--gris);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* Campos del formulario */
+.campo {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--marron-oscuro);
+}
+
+input {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid var(--beige-claro);
+    border-radius: 9px;
+    background: white;
+    color: var(--negro);
+    font-size: 15px;
+    outline: none;
+    transition: 0.25s;
+}
+
+input::placeholder {
+    color: #A59A90;
+}
+
+input:focus {
+    border-color: var(--marron);
+    box-shadow: 0 0 0 3px rgba(114, 80, 59, 0.12);
+}
+
+/* Botones */
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.btn-guardar {
+    background: var(--marron);
+    color: white;
+    border: 1px solid var(--marron);
+    margin-top: 8px;
+}
+
+.btn-guardar:hover {
+    background: var(--marron-oscuro);
+    transform: translateY(-2px);
+}
+
+.btn-limpiar {
+    background: transparent;
+    color: var(--marron);
+    border: 1px solid var(--beige-claro);
+    margin-top: 12px;
+}
+
+.btn-limpiar:hover {
+    background: var(--beige);
+}
+
+#mensaje {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+    color: var(--marron);
+}
+
+footer {
+    text-align: center;
+    color: var(--gris);
+    font-size: 12px;
+    margin: 25px 0;
+}
+
+/* Adaptación a celulares */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 15px 5%;
     }
 
+    .logo {
+        font-size: 17px;
+    }
+
+    .estado {
+        font-size: 10px;
+    }
+
+    .container {
+        margin: 30px auto;
+    }
+
+    .form-card {
+        padding: 24px 20px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+}
