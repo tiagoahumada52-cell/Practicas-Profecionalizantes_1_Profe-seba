@@ -1,72 +1,111 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BasedeDatos | Registro</title>
+    <title>Base de Datos | Gestión de Estudiantes</title>
     <link rel="stylesheet" href="css/stile.css">
 </head>
 <body>
-    <header class="navbar">
-        <div class="logo">
-            <span class="logo-icon">BD</span>
-            <span>BasedeDatos</span>
-        </div>
-        <span class="estado">Sistema de registro</span>
-    </header>
+    
+    <div class="card-admin">
+        <h2>Gestión de Estudiantes</h2>
 
-    <main class="container">
-        <section class="form-card">
-            <div class="encabezado">
-                <span class="etiqueta">PANEL DE USUARIO</span>
-                <h1>Crear registro</h1>
-                <p>Ingresa los datos personales para registrar un usuario.</p>
+        <!-- Formulario Rápido para Ingresar Nuevo Estudiante -->
+        <form id="form-nuevo-estudiante" class="form-inline-registro">
+            <h3>Agregar Nuevo Estudiante</h3>
+            <div class="grupo-campos">
+                <div class="campo">
+                    <input type="text" id="nuevo-nombre" placeholder="Nombre" required>
+                </div>
+                <div class="campo">
+                    <input type="text" id="nuevo-apellido" placeholder="Apellido" required>
+                </div>
             </div>
 
-            <form id="formulario">
+            <div class="grupo-campos">
                 <div class="campo">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre"
-                           placeholder="Ingresa tu nombre" required>
+                    <input type="text" id="nuevo-dni" placeholder="DNI" inputmode="numeric" required>
                 </div>
-
                 <div class="campo">
-                    <label for="apellido">Apellido</label>
-                    <input type="text" id="apellido" name="apellido"
-                           placeholder="Ingresa tu apellido" required>
+                    <input type="tel" id="nuevo-celular" placeholder="Celular" required>
                 </div>
+            </div>
 
+            <div class="grupo-campos">
                 <div class="campo">
-                    <label for="dni">DNI</label>
-                    <input type="text" id="dni" name="dni"
-                           placeholder="Número de documento"
-                           inputmode="numeric" required>
+                    <select id="nuevo-anio" required>
+                        <option value="">Selecciona año</option>
+                        <option value="1">1.º año</option>
+                        <option value="2">2.º año</option>
+                        <option value="3">3.º año</option>
+                        <option value="4">4.º año</option>
+                        <option value="5">5.º año</option>
+                        <option value="6">6.º año</option>
+                    </select>
                 </div>
-
                 <div class="campo">
-                    <label for="celular">Celular</label>
-                    <input type="tel" id="celular" name="celular"
-                           placeholder="Código de área y número" required>
+                    <select id="nuevo-division" required>
+                        <option value="">Selecciona división</option>
+                        <option value="1ra">1.ª división</option>
+                        <option value="2da">2.ª división</option>
+                    </select>
                 </div>
+            </div>
 
-                <button type="submit" class="btn-guardar">
-                    Guardar registro
-                </button>
+            <button type="submit" class="btn-guardar" style="margin-top: 10px;">Guardar Estudiante</button>
+        </form>
 
-                <button type="reset" class="btn-limpiar">
-                    Limpiar formulario
-                </button>
+        <hr class="separador">
 
-                <p id="mensaje" role="status"></p>
-            </form>
-        </section>
+        <!-- Filtros -->
+        <div class="grupo-campos" style="margin-top: 20px;">
+            <div class="campo">
+                <label for="filtro-anio">Filtrar por Año</label>
+                <select id="filtro-anio">
+                    <option value="">Todos los años</option>
+                    <option value="1">1.º año</option>
+                    <option value="2">2.º año</option>
+                    <option value="3">3.º año</option>
+                    <option value="4">4.º año</option>
+                    <option value="5">5.º año</option>
+                    <option value="6">6.º año</option>
+                </select>
+            </div>
 
-        <footer>
-            <p>BasedeDatos © 2026 | Sistema de registro</p>
-        </footer>
-    </main>
+            <div class="campo">
+                <label for="filtro-division">Filtrar por División</label>
+                <select id="filtro-division">
+                    <option value="">Todas las divisiones</option>
+                    <option value="1ra">1.ª división</option>
+                    <option value="2da">2.ª división</option>
+                </select>
+            </div>
+        </div>
 
-    <script src="basededatos/app.js"></script>
+        <!-- Tabla de Registros -->
+        <div class="table-responsive">
+            <table id="tabla-alumnos">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>DNI</th>
+                        <th>Celular</th>
+                        <th>Año</th>
+                        <th>División</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpo-tabla">
+                    <!-- Datos dinámicos -->
+                </tbody>
+            </table>
+        </div>
+
+        <a href="index.html" class="btn-volver">← Ir al formulario clásico</a>
+    </div>
+
+    <script src="basededatos/gestion.js"></script>
 </body>
 </html>
